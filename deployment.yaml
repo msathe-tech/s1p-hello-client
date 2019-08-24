@@ -1,0 +1,22 @@
+# Generated on Wed Aug 14 00:38:02 EDT 2019
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-client
+  namespace: hello
+spec:
+  selector:
+    matchLabels:
+      app: hello-client
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-client
+    spec:
+      containers:
+        - name: hello-client
+          image: msathepivotal/hello-client
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
